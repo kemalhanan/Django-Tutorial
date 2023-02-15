@@ -4,4 +4,4 @@ NPM     : 2106654864
 
 Kelas   : A
 
-Hobi    : Tidur
+Hobi    : Usil
