@@ -10,6 +10,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
 
 # Create your views here.
 def show_tracker(request):
@@ -71,3 +72,7 @@ def login_user(request):
             messages.info(request, 'Username atau Password salah!')
     context = {}
     return render(request, 'login.html', context)
+
+def logout_user(request):
+    logout(request)
+    return redirect('money_tracker:login')
