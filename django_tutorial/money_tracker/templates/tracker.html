@@ -24,6 +24,8 @@
 {% endfor %}
 </table>
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 <br>
 <a href="{% url 'money_tracker:create_transaction' %}">
     <button>
