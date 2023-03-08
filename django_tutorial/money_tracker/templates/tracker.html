@@ -45,9 +45,14 @@
         <td>{{transaction.description}}</td>
         <td>
             <a href="{% url 'money_tracker:modify_transaction' transaction.pk %}">
-                <button>
-                    Ubah
-                </button>
+              <button>
+                  Ubah
+              </button>
+            </a>
+            <a href="{% url 'money_tracker:delete_transaction' transaction.pk %}">
+              <button>
+                  Hapus
+              </button>
             </a>
         </td>
     </tr>

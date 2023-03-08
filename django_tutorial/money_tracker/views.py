@@ -101,3 +101,11 @@ def modify_transaction(request, id):
 
     context = {'form': form}
     return render(request, "modify_transaction.html", context)
+
+def delete_transaction(request, id):
+    # Get data berdasarkan ID
+    transaction = TransactionRecord.objects.get(pk = id)
+    # Hapus data
+    transaction.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('money_tracker:show_tracker'))
