@@ -11,16 +11,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'money_tracker:show_tracker' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="{% url 'money_tracker:create_transaction' %}">Transaksi Baru</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'money_tracker:logout' %}">Log Out</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -59,18 +57,8 @@
 {% endfor %}
 </table>
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+<h7>Sesi terakhir login: {{ last_login }}</h7>
 
 <br>
-<a href="{% url 'money_tracker:create_transaction' %}">
-    <button>
-        Transaksi Baru
-    </button>
-</a>
-<a href="{% url 'money_tracker:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
 
 {% endblock content %}
