@@ -86,3 +86,18 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('money_tracker:login'))
     response.delete_cookie('last_login')
     return response
+
+def modify_transaction(request, id):
+    # Get data berdasarkan ID
+    transaction = TransactionRecord.objects.get(pk = id)
+
+    # Set instance pada form dengan data dari transaction
+    form = TransactionRecordForm(request.POST or None, instance=transaction)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('money_tracker:show_tracker'))
+
+    context = {'form': form}
+    return render(request, "modify_transaction.html", context)
